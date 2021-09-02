@@ -1,16 +1,50 @@
 import React from "react";
 
-const buttonA = <button>Primeiro Botão</button>;
+const buttonA = <button>Histórico dos Clientes</button>;
 
-const buttonB = <button>Segundo Botão</button>;
+const buttonB = <button>Cadastrar Cliente</button>;
+
+const hasCustomer = true;
 
 const App = () => {
+
+  const renderShowHistory = () => 
+    <div>
+    Clique no botão abaixo para visualizar o histórico dos clientes.<br />
+      <br />
+
+      {buttonA}
+    </div>  
+  ;
+
+  const renderAddCustom = () => 
+    <div>
+    Clique abaixo para cadastrar o cliente
+      <br />
+      {buttonB}
+    </div>
+  ;
+
+  const showCustomer = () => {
+
+    if(!hasCustomer) return null;
+
+    return (
+      <div>
+        <h1>
+          Nome do Cliente: Carlos Lima
+        </h1>
+      </div>
+    );
+    
+  };
+
   return (
     <div>
       <p>Digital Innovation One</p>
       <p>Bem vindo a nossa aula =D.</p>
-      {buttonA}
-      {buttonB}
+      {hasCustomer ? renderShowHistory() : renderAddCustom() }; 
+      <div>{showCustomer()}</div>   
     </div>
   );
 };
